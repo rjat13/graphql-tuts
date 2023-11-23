@@ -1,0 +1,26 @@
+{
+  "name": "graphql-tuts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjat13/graphql-tuts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rjat13/graphql-tuts/issues"
+  },
+  "homepage": "https://github.com/rjat13/graphql-tuts#readme",
+  "dependencies": {
+    "apollo-server": "^3.13.0",
+    "apollo-server-core": "^3.13.0",
+    "graphql": "^16.8.1"
+  }
+}
