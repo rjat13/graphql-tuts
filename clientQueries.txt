@@ -24,12 +24,27 @@ query getSingleUser{
     role
   }
 }
-
+// using query variable
+query getSingleUser($id: ID!){
+  user(id: $id){
+    name,
+    email,
+    role
+  }
+}
 
 --------------------------
 
 query getSingleQuote{
   quote(user_id: 3){
+    id,
+    quote,
+    user_id
+  }
+}
+// using query variable
+query getSingleQuote($userId:ID!){
+  quote(user_id: $userId){
     id,
     quote,
     user_id
