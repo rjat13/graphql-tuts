@@ -1,44 +1,10 @@
-import { ApolloServer, gql } from "apollo-server";
+import { ApolloServer } from "apollo-server";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
-import { quotes, users } from "./fakeData.js";
-
-const typeDefs = gql`
-  type Query {
-    greets: String
-    users: [User]
-    quotes: [Quote]
-    user(id: ID!): User
-    quote(user_id:ID!): [Quote]
-  }
-
-  type User{
-    id: ID
-    name: String
-    email: String,
-    role: String,
-    greets: String,
-    quotes: [Quote]
-  }
-
-  type Quote{
-    id:ID
-    quote: String
-    user_id: ID
-  }
-`;
-const resolvers = {
-  Query: {
-    greets: () => "Hello World!",
-    users: () => users,
-    quotes: () => quotes,
-    user: (_, args) => users.find((u) => u.id == args.id),
-    quote: (_, {user_id}) => quotes.filter(q => q.user_id == user_id)
-  },
-  User:{
-    greets:(parent) => `Hi ${parent.name}!`,
-    quotes: (parent) => quotes.filter((q) => q.user_id === parent.id)
-  }
-};
+import './config.js'
+import './models/User.js';
+import './models/Quote.js';
+import { resolvers } from "./resolvers.js";
+import { typeDefs } from "./schemaGql.js";
 
 const server = new ApolloServer({
   typeDefs,
